@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Sidebar = () => {
+const NavBar = () => {
 	return (
-		<div className='ui sidebar inverted vertical menu visible'>
+		<div className='ui inverted vertical menu visible left sidebar'>
 			<NavLink to='/' exact className='item '>
 				Home
 				<i className='home icon'></i>
@@ -24,4 +24,4 @@ const Sidebar = () => {
 	);
 };
 
-export default Sidebar;
+export default NavBar;
