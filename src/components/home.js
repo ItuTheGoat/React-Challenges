@@ -1,18 +1,13 @@
 import React from "react";
 
-const myStyle = {
-	margin: 0
-};
-
 const Home = () => {
 	return (
 		<div id='home'>
-			<header>Home</header>
+			<h3 className='ui center aligned header'>Welcome!</h3>
 			<p>
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae quidem
-				optio dolor illum officia dicta maiores ducimus et? Fugiat voluptas
-				impedit, exercitationem corporis doloremque laborum iusto veniam earum
-				incidunt. Aliquid.
+				This is a Project which main purpose is to show how good I am at React
+				and what I can do. I have taken a bunch of c# tasks and converted them
+				to React. Choose a tool on the left sidebar.
 			</p>
 		</div>
 	);
