@@ -16,7 +16,7 @@ const App = () => {
 	return (
 		<div>
 			<h2 className='ui center aligned header' style={myStyle}>
-				<h2>Choose Your Tool</h2>
+				Choose Your Tool
 			</h2>
 
 			<div className='container ui grid'>
