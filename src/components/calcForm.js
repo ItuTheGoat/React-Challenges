@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
 const calcForm = props => {
-  this.state = {
-    value: ""
-  };
-
   return (
     <div id={props.id}>
       <h3 className="ui center aligned header dividing">{props.headerInfo}</h3>
@@ -27,7 +23,7 @@ const calcForm = props => {
         </button>
 
         <h5>Results: </h5>
-        <p>{props.results}</p>
+        <p>{this.props.resultsDisplay}</p>
       </form>
     </div>
   );

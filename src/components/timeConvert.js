@@ -3,27 +3,21 @@ import CalcForm from "./calcForm";
 import { connect } from "react-redux";
 
 class TimeConverter extends React.Component {
-  // state = {
-  //   time: null,
-  //   hours: null
-  // };
+  state = {
+    time: null
+  };
 
-  TimeConvert(input) {
-    //event.preventDefault();
-    // Convert Minutes to Hours
-    let hours = input / 60;
-    let minutes = input % 60;
-    let strHourFormat = `${hours}:${minutes}`;
-  }
+  // TimeConvert(input) {
+  //   //event.preventDefault();
+  //   // Convert Minutes to Hours
+  //   let hours = input / 60;
+  //   let minutes = input % 60;
+  //   let strHourFormat = `${hours}:${minutes}`;
+  // }
 
   handleChange(event) {
-    this.props.value;
-
     this.setState({ time: event.target.value });
-    let inputVal = this.state.time;
-    let hours = inputVal / 60;
-    let minutes = inputVal % 60;
-    this.setState.hours = `${hours}:${minutes}`;
+
     console.log(event.target.value);
   }
 
@@ -31,12 +25,12 @@ class TimeConverter extends React.Component {
     event.preventDefault();
   }
 
-  getValue() {
-    let inputVal = this.state.time;
-    let hours = inputVal / 60;
-    let minutes = inputVal % 60;
-    this.setState.hours = `${hours}:${minutes}`;
-  }
+  // getValue() {
+  //   let inputVal = this.state.time;
+  //   let hours = inputVal / 60;
+  //   let minutes = inputVal % 60;
+  //   this.setState.hours = `${hours}:${minutes}`;
+  // }
 
   information = {
     headerInfo: "Convert Minutes to Seconds",
@@ -51,20 +45,26 @@ class TimeConverter extends React.Component {
         id="timeConverter"
         headerInfo={this.information.headerInfo}
         description={this.information.description}
-        onHandleClick={this.handleClick}
+        onClick={this.props.onConvert}
         label="Enter minutes"
         inputName="minutes"
         placeholder="placeholder"
         handleChange={this.handleChange}
         btnText="Convert"
+        resultsDisplay={this.state.result}
       />
     );
   }
 }
-const mapDispatchToProps = dispatch => {};
-
-const mapStateToProps = state => {
-  return { value: state.value, result: state.result };
+const mapDispatchToProps = dispatch => {
+  // Need to return the dispatch for time convert
+  return {
+    onConvert: () => dispatch({ type: "CONVERT", payload: this.state.time })
+  };
 };
 
-export default connect(mapStateToProps)(TimeConverter);
+const mapStateToProps = state => {
+  return { result: state.result };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TimeConverter);

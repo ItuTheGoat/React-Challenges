@@ -1,19 +1,26 @@
 const initialState = {
-  value: null,
-  result: null
+  result: ""
 };
 
-export const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
+  var newState = { ...state };
+
   switch (action.type) {
     case "CONVERT":
-      return state;
+      var time = action.payload;
+      var hours = time / 60;
+      var minutes = time % 60;
+      newState.result = `${hours}:${minutes}`;
+      return newState;
     case "FACTORIATE":
-      return state;
+      return newState;
     case "CHANGE":
-      return state;
+      return newState;
     case "LONG":
-      return state;
-    case "Reverse":
-      return state;
+      return newState;
+    case "REVERSE":
+      return newState;
   }
 };
+
+export default reducer;
